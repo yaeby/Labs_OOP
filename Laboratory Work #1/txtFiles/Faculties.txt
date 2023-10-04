@@ -1,0 +1,12 @@
+nf/Faculty of Computers Informatics and Microelectronics/FCIM/SOFTWARE_ENGINEERING
+nf/Faculty of Mechanical Engineering/FME/MECHANICAL_ENGINEERING
+nf/Faculty of Software Engineering/FSE/SOFTWARE_ENGINEERING
+nf/Faculty of Food Technology/FFT/FOOD_TECHNOLOGY
+nf/Faculty of Urbanism and Architecture/FUA/URBANISM_ARCHITECTURE
+nf/Faculty of Veterinary Medicine/FVM/VETERINARY_MEDICINE
+nf/Faculty of Informational Technology/FIT/SOFTWARE_ENGINEERING
+nf/Faculty of Computer Science and Engineering/FCSE/SOFTWARE_ENGINEERING
+nf/Faculty of Mechanical and Aerospace Engineering/FMAE/MECHANICAL_ENGINEERING
+nf/Faculty of Culinary Arts and Nutrition/FCAN/FOOD_TECHNOLOGY
+nf/Faculty of Urban Planning and Architecture/FUPA/URBANISM_ARCHITECTURE
+nf/Faculty of Veterinary Science and Medicine/FVSM/VETERINARY_MEDICINE
