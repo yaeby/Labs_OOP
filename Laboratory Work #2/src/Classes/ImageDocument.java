@@ -1,8 +1,8 @@
 package Classes;
 
 public class ImageDocument extends Document {
-    private int width;
-    private int height;
+    private final int width;
+    private final int height;
 
     public ImageDocument(String name, int width, int height) {
         super(name);

@@ -1,9 +1,9 @@
 package Classes;
 
 public class CodeDocument extends Document {
-    private int lineCount;
-    private int classCount;
-    private int methodCount;
+    private final int lineCount;
+    private final int classCount;
+    private final int methodCount;
 
     public CodeDocument(String name, int lineCount, int classCount, int methodCount) {
         super(name);

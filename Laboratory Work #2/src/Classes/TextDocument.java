@@ -1,9 +1,9 @@
 package Classes;
 
 public class TextDocument extends Document {
-    private int lineCount;
-    private int wordCount;
-    private int charCount;
+    private final int lineCount;
+    private final int wordCount;
+    private final int charCount;
 
     public TextDocument(String name, int lineCount, int wordCount, int charCount) {
         super(name);
