@@ -49,7 +49,7 @@ public class DocumentChangeDetector {
 
     private long loadLastSnapshotTime() {
         try {
-            File file = new File("D:\\FAF\\Labs_OOP\\Laboratory Work #2\\src\\snapshot_time.txt");
+            File file = new File("Laboratory Work #2/src/snapshot_time.txt");
             if (file.exists()) {
                 BufferedReader reader = new BufferedReader(new FileReader(file));
                 return Long.parseLong(reader.readLine());
@@ -62,7 +62,7 @@ public class DocumentChangeDetector {
 
     private void saveLastSnapshotTime(long lastSnapshotTime) {
         try {
-            File file = new File("D:\\FAF\\Labs_OOP\\Laboratory Work #2\\src\\snapshot_time.txt");
+            File file = new File("Laboratory Work #2/src/snapshot_time.txt");
             BufferedWriter writer = new BufferedWriter(new FileWriter(file));
             writer.write(Long.toString(lastSnapshotTime));
             writer.close();
@@ -72,7 +72,7 @@ public class DocumentChangeDetector {
     }
 
     public void info(String filename) {
-        Path filePath = Paths.get("D:\\FAF\\Labs_OOP\\Laboratory Work 2\\working_folder", filename);
+        Path filePath = Paths.get("Laboratory Work #2/src/working_folder", filename);
         if (Files.exists(filePath)) {
             try {
                 BasicFileAttributes attributes = Files.readAttributes(filePath, BasicFileAttributes.class);
