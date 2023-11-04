@@ -39,7 +39,7 @@ public class ProgramFile extends Files {
             System.out.println("Line Count: " + lineCount);
             System.out.println("Class Count: " + classCount);
             System.out.println("Method Count: " + methodCount);
-        }else System.out.println("Such file does not exist or has not been deleted!!!");
+        }else System.out.println("Invalid input");
     }
 
     @Override

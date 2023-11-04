@@ -1,5 +1,6 @@
 package Classes;
 
+import Operations.Menu;
 import Operations.OperationFile;
 
 import java.io.File;
@@ -36,6 +37,7 @@ public class FileMonitor extends Files {
         List<String> prevFileName = file.processFilesList();
         System.out.println("Created snapshot at: " + snapshot);
 
+        assert files != null;
         for(File file: files){
             fileName = file.getName();
             FileTime lastModifiedTime = FileTime.fromMillis(file.lastModified());
@@ -66,13 +68,7 @@ public class FileMonitor extends Files {
             case "png", "jpg" -> {imageFile.printInfo(filename);}
         }
     }
-    private void help(){
-        System.out.println("1. commit -  Simply update the snapshot time to the current time.\n" +
-                "2. info<filName> - prints general information about the file.\n" +
-                "3. status - When calling status an iteration\n" +
-                "occurs through all the files stored in program memory and prints if they were\n" +
-                "changed during snapshot time and current time.");
-    }
+
     @Override
     public void getCreateTime(String filePath) {
         try {
@@ -100,7 +96,7 @@ public class FileMonitor extends Files {
                     printInfo(fileName);
                 }
                 case "status" -> {status();}
-                case "help" -> {help();}
+                case "help" -> {Menu.printMenu();}
                 case "exit" -> {System.exit(0);}
                 default -> {System.out.println("Is not valid command!!! \n" +
                         "For more information, write help in the console");}
