@@ -2,11 +2,8 @@ package Operations;
 
 import java.io.IOException;
 import java.nio.file.*;
-import java.nio.file.attribute.FileTime;
 
 public class MonitoringChanges implements Runnable {
-    OperationFile file = new OperationFile();
-    FileTime createTime;
 
     private void checkChanges() throws IOException, InterruptedException {
         Path repository = Paths.get("D:\\FAF\\OOP\\Laboratory Work #2\\working_folder\\");
