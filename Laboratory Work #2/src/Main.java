@@ -1,5 +1,5 @@
 import Classes.FileMonitor;
-import Classes.MonitoringChanges;
+import Operations.MonitoringChanges;
 import Operations.Menu;
 
 public class Main {
