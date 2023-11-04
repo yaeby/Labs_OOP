@@ -87,7 +87,6 @@ public class FileMonitor extends Files {
         Scanner inputScanner = new Scanner(System.in);
 
         while(true){
-
             String command = inputScanner.next();
             switch(command){
                 case "commit" -> {commit();}
@@ -98,8 +97,7 @@ public class FileMonitor extends Files {
                 case "status" -> {status();}
                 case "help" -> {Menu.printMenu();}
                 case "exit" -> {System.exit(0);}
-                default -> {System.out.println("Is not valid command!!! \n" +
-                        "For more information, write help in the console");}
+                default -> {System.out.println("Invalid command");}
             }
         }
     }
