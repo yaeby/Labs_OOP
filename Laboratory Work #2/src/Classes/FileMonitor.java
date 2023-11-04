@@ -51,7 +51,7 @@ public class FileMonitor extends Files {
             }else if(comparisonResultMod < 0){
                 System.out.println(fileName + " - No changed");
             }else if(comparisonResultAdd > 0){
-                System.out.println(fileName + " - new file");
+                System.out.println(fileName + " - New file");
             }
         }
 
