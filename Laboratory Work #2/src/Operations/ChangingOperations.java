@@ -18,9 +18,9 @@ public class ChangingOperations implements Runnable {
             WatchEvent.Kind<?> kind = event.kind();
             Path pathFileName = (Path) event.context();
 
-            if (kind == StandardWatchEventKinds.ENTRY_CREATE) {System.out.println(pathFileName.getFileName() + " New file");
-            } else if (kind == StandardWatchEventKinds.ENTRY_DELETE) {System.out.println(pathFileName.getFileName() + " Delete");
-            } else if (kind == StandardWatchEventKinds.ENTRY_MODIFY) {System.out.println(pathFileName.getFileName() + " Changed");
+            if (kind == StandardWatchEventKinds.ENTRY_CREATE) {System.out.println(pathFileName.getFileName() + " has been added");
+            } else if (kind == StandardWatchEventKinds.ENTRY_DELETE) {System.out.println(pathFileName.getFileName() + " has been deleted");
+            } else if (kind == StandardWatchEventKinds.ENTRY_MODIFY) {System.out.println(pathFileName.getFileName() + " has been changed");
             }
         }
         key.reset();
