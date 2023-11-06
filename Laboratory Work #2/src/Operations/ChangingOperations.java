@@ -9,9 +9,9 @@ public class ChangingOperations implements Runnable {
     private void checkChanges() throws IOException, InterruptedException {
         Path repository = Paths.get("D:\\FAF\\OOP\\Laboratory Work #2\\working_folder\\");
 
+        //Watch Service
         WatchService watchService = FileSystems.getDefault().newWatchService();
         repository.register(watchService, StandardWatchEventKinds.ENTRY_CREATE, StandardWatchEventKinds.ENTRY_DELETE, StandardWatchEventKinds.ENTRY_MODIFY);
-
         WatchKey key = watchService.take();
 
         for (WatchEvent<?> event : key.pollEvents()) {
@@ -25,6 +25,7 @@ public class ChangingOperations implements Runnable {
         }
         key.reset();
     }
+
     @Override
     public void run() {
         while (true) {

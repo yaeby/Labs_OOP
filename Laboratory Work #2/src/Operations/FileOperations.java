@@ -35,14 +35,11 @@ public class FileOperations extends Files {
             }
         }
     }
-    Text txtFile;
-    {
-        txtFile = new Text();
-    }
 
-    Code programFile = new Code();
     GeneralOperations file = new GeneralOperations();
+    Text txtFile = new Text();
     Image imageFile = new Image();
+    Code programFile = new Code();
 
     public void commit() {
         FileTime currentFileTime = FileTime.from(Instant.now());

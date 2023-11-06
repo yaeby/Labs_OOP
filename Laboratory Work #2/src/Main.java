@@ -14,7 +14,7 @@ public class Main {
         Thread thread = new Thread(new ChangingOperations());
         thread.start();
 
-        //Read/Execute commands
+        //Read & Execute commands
         FileOperations command = new FileOperations();
         command.inputCommand();
     }
