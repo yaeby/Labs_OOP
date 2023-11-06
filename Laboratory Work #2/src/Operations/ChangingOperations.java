@@ -21,7 +21,7 @@ public class ChangingOperations implements Runnable {
             Path pathFileName = (Path) event.context();
 
             if (kind == StandardWatchEventKinds.ENTRY_CREATE) {
-                System.out.println(pathFileName.getFileName() + " new file");
+                System.out.println(pathFileName.getFileName() + " New file");
             } else if (kind == StandardWatchEventKinds.ENTRY_DELETE) {
                 System.out.println(pathFileName.getFileName() + " Delete");
             } else if (kind == StandardWatchEventKinds.ENTRY_MODIFY) {
