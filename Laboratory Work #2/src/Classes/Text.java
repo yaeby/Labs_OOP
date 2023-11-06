@@ -1,6 +1,6 @@
 package Classes;
 
-import Operations.OperationFile;
+import Operations.GeneralOperations;
 
 import java.io.File;
 import java.io.IOException;
@@ -9,11 +9,11 @@ import java.nio.file.Paths;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.List;
 
-public class TextFile extends Files {
+public class Text extends Files {
     public int lineCount;
     public int wordCount;
     public int charCount;
-    OperationFile file = new OperationFile();
+    GeneralOperations file = new GeneralOperations();
 
     @Override
     public void printInfo(String filename) {

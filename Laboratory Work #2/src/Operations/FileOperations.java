@@ -1,7 +1,9 @@
-package Classes;
+package Operations;
 
-import Operations.Menu;
-import Operations.OperationFile;
+import Classes.Files;
+import Classes.Image;
+import Classes.Code;
+import Classes.Text;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,15 +15,15 @@ import java.time.Instant;
 import java.util.List;
 import java.util.Scanner;
 
-public class FileMonitor extends Files {
-    TextFile txtFile;
+public class FileOperations extends Files {
+    Text txtFile;
 
     {
-        txtFile = new TextFile();
+        txtFile = new Text();
     }
-    ProgramFile programFile = new ProgramFile();
-    OperationFile file = new OperationFile();
-    ImageFile imageFile = new ImageFile();
+    Code programFile = new Code();
+    GeneralOperations file = new GeneralOperations();
+    Image imageFile = new Image();
     public void commit() {
         FileTime currentFileTime = FileTime.from(Instant.now());
 

@@ -1,6 +1,6 @@
 package Classes;
 
-import Operations.OperationFile;
+import Operations.GeneralOperations;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,11 +10,11 @@ import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProgramFile extends Files {
+public class Code extends Files {
     public int lineCount;
     public int classCount;
     public int methodCount;
-    OperationFile file = new OperationFile();
+    GeneralOperations file = new GeneralOperations();
     @Override
     public void printInfo(String filename) {
         String repository = "D:\\FAF\\OOP\\Laboratory Work #2\\working_folder\\";

@@ -3,7 +3,7 @@ package Operations;
 import java.io.IOException;
 import java.nio.file.*;
 
-public class MonitoringChanges implements Runnable {
+public class ChangingOperations implements Runnable {
 
     private void checkChanges() throws IOException, InterruptedException {
         Path repository = Paths.get("D:\\FAF\\OOP\\Laboratory Work #2\\working_folder\\");

@@ -1,6 +1,6 @@
 package Classes;
 
-import Operations.OperationFile;
+import Operations.GeneralOperations;
 
 import java.io.File;
 import java.io.IOException;
@@ -9,10 +9,10 @@ import java.nio.file.Paths;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.List;
 
-public class ImageFile extends Files {
+public class Image extends Files {
     public int width;
     public int height;
-    OperationFile file = new OperationFile();
+    GeneralOperations file = new GeneralOperations();
     @Override
     public void printInfo(String filename) {
         String repository = "D:\\FAF\\OOP\\Laboratory Work #2\\working_folder\\";

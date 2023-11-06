@@ -1,5 +1,5 @@
-import Classes.FileMonitor;
-import Operations.MonitoringChanges;
+import Operations.FileOperations;
+import Operations.ChangingOperations;
 import Operations.Menu;
 
 public class Main {
@@ -11,11 +11,11 @@ public class Main {
         Menu.printMenu();
 
         //Start Thread
-        Thread thread = new Thread(new MonitoringChanges());
+        Thread thread = new Thread(new ChangingOperations());
         thread.start();
 
         //Read/Execute commands
-        FileMonitor command = new FileMonitor();
+        FileOperations command = new FileOperations();
         command.writeCommand();
     }
 }
