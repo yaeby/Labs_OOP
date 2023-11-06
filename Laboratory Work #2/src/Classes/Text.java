@@ -21,7 +21,7 @@ public class Text extends Files {
         File f = new File(repository + filename);
         if(f.exists()){
             List<Integer> countInfo;
-            countInfo = file.readTxtFile(repository + filename);
+            countInfo = file.readText(repository + filename);
             wordCount = countInfo.get(0);
             charCount = countInfo.get(1);
             lineCount = countInfo.get(2);

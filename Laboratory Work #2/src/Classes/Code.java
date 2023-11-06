@@ -24,9 +24,9 @@ public class Code extends Files {
             fileName = filename;
             extension = findExtension(repository + fileName);
             if (extension.equals("java")) {
-                countInfo = file.readJavaFile(repository + filename);
+                countInfo = file.readJava(repository + filename);
             } else if (extension.equals("py")) {
-                countInfo = file.readPythonFile(repository + filename);
+                countInfo = file.readPython(repository + filename);
             }
             lineCount = countInfo.get(0);
             classCount = countInfo.get(1);

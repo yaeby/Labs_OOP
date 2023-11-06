@@ -54,7 +54,7 @@ public class GeneralOperations {
         return listFileName;
     }
 
-    public List<Integer> readTxtFile(String path){
+    public List<Integer> readText(String path){
         int wordCount = 0;
         int charCount = 0;
         int lineCount = 0;
@@ -78,7 +78,7 @@ public class GeneralOperations {
         countInfo.add(lineCount);
         return countInfo;
     }
-    public List<Integer> readJavaFile(String path) {
+    public List<Integer> readJava(String path) {
         int classCount = 0;
         int methodCount = 0;
         int lineCount = 0;
@@ -108,7 +108,7 @@ public class GeneralOperations {
         countInfo.add(methodCount);
         return countInfo;
     }
-    public List<Integer> readPythonFile(String path) {
+    public List<Integer> readPython(String path) {
         int classCount = 0;
         int methodCount = 0;
         int lineCount = 0;
@@ -137,7 +137,7 @@ public class GeneralOperations {
         return countInfo;
     }
 
-    public List<Integer> readImageFile(String path){
+    public List<Integer> readImage(String path){
         List<Integer> countInfo = new ArrayList<>();
         try {
             BufferedImage image = ImageIO.read(new File(path));
@@ -145,7 +145,7 @@ public class GeneralOperations {
                 countInfo.add(image.getWidth());
                 countInfo.add(image.getHeight());
             } else {
-                System.out.println("The image could not be read.");
+                System.out.println("Invalid type of image");
             }
         } catch (IOException e) {
             e.printStackTrace();

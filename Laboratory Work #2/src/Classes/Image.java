@@ -19,7 +19,7 @@ public class Image extends Files {
         File f = new File(repository + filename);
         if(f.exists()) {
             List<Integer> countInfo;
-            countInfo = file.readImageFile(repository + filename);
+            countInfo = file.readImage(repository + filename);
             width = countInfo.get(0);
             height = countInfo.get(1);
             fileName = filename;
