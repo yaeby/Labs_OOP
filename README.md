@@ -1,2 +1,2 @@
 # Labs_OOP
-University laboratory works at Object-oriented programming
+University laboratory works at Object-Oriented Programming
