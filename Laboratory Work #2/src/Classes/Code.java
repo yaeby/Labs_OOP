@@ -16,7 +16,7 @@ public class Code extends Files {
     public int methodCount;
     GeneralOperations file = new GeneralOperations();
     @Override
-    public void printInfo(String filename) {
+    public void Info(String filename) {
         String repository = "D:\\FAF\\OOP\\Laboratory Work #2\\working_folder\\";
         File f = new File(repository + filename);
         if(f.exists()) {

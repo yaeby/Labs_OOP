@@ -5,14 +5,12 @@ import java.nio.file.*;
 
 public class ChangingOperations implements Runnable {
 
+    public final int time = 5000;
     private void checkChanges() throws IOException, InterruptedException {
         Path repository = Paths.get("D:\\FAF\\OOP\\Laboratory Work #2\\working_folder\\");
 
         WatchService watchService = FileSystems.getDefault().newWatchService();
-        repository.register(watchService,
-                StandardWatchEventKinds.ENTRY_CREATE,
-                StandardWatchEventKinds.ENTRY_DELETE,
-                StandardWatchEventKinds.ENTRY_MODIFY);
+        repository.register(watchService, StandardWatchEventKinds.ENTRY_CREATE, StandardWatchEventKinds.ENTRY_DELETE, StandardWatchEventKinds.ENTRY_MODIFY);
 
         WatchKey key = watchService.take();
 
@@ -20,12 +18,9 @@ public class ChangingOperations implements Runnable {
             WatchEvent.Kind<?> kind = event.kind();
             Path pathFileName = (Path) event.context();
 
-            if (kind == StandardWatchEventKinds.ENTRY_CREATE) {
-                System.out.println(pathFileName.getFileName() + " New file");
-            } else if (kind == StandardWatchEventKinds.ENTRY_DELETE) {
-                System.out.println(pathFileName.getFileName() + " Delete");
-            } else if (kind == StandardWatchEventKinds.ENTRY_MODIFY) {
-                System.out.println(pathFileName.getFileName() + " Changed");
+            if (kind == StandardWatchEventKinds.ENTRY_CREATE) {System.out.println(pathFileName.getFileName() + " New file");
+            } else if (kind == StandardWatchEventKinds.ENTRY_DELETE) {System.out.println(pathFileName.getFileName() + " Delete");
+            } else if (kind == StandardWatchEventKinds.ENTRY_MODIFY) {System.out.println(pathFileName.getFileName() + " Changed");
             }
         }
         key.reset();
@@ -39,7 +34,7 @@ public class ChangingOperations implements Runnable {
                 throw new RuntimeException(e);
             }
             try {
-                Thread.sleep(5000);
+                Thread.sleep(time);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

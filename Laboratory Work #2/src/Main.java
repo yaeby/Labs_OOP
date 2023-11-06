@@ -16,6 +16,6 @@ public class Main {
 
         //Read/Execute commands
         FileOperations command = new FileOperations();
-        command.writeCommand();
+        command.inputCommand();
     }
 }

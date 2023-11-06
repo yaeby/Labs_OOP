@@ -7,6 +7,6 @@ public abstract class Files {
     public String extension;
     public FileTime createTime;
     public FileTime snapshot;
-    public abstract void printInfo(String filename);
+    public abstract void Info(String filename);
     public abstract void getCreateTime(String filePath);
 }

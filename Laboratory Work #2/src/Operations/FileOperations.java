@@ -16,14 +16,34 @@ import java.util.List;
 import java.util.Scanner;
 
 public class FileOperations extends Files {
-    Text txtFile;
 
+    public void inputCommand(){
+        Scanner inputScanner = new Scanner(System.in);
+
+        while(true){
+            String command = inputScanner.next();
+            switch(command){
+                case "commit" -> {commit();}
+                case "info" -> {
+                    String fileName = inputScanner.next();
+                    Info(fileName);
+                }
+                case "status" -> {status();}
+                case "help" -> {Menu.printMenu();}
+                case "exit" -> {System.exit(0);}
+                default -> {System.out.println("Invalid command");}
+            }
+        }
+    }
+    Text txtFile;
     {
         txtFile = new Text();
     }
+
     Code programFile = new Code();
     GeneralOperations file = new GeneralOperations();
     Image imageFile = new Image();
+
     public void commit() {
         FileTime currentFileTime = FileTime.from(Instant.now());
 
@@ -31,6 +51,7 @@ public class FileOperations extends Files {
 
         file.writeSnapshotAndFilesName(currentFileTime, repository);
     }
+
     public void status() {
         String repository = "D:\\FAF\\OOP\\Laboratory Work #2\\working_folder\\";
         File folder = new File(repository);
@@ -40,7 +61,7 @@ public class FileOperations extends Files {
         System.out.println("Created snapshot at: " + snapshot);
 
         assert files != null;
-        for(File file: files){
+        for (File file : files) {
             fileName = file.getName();
             FileTime lastModifiedTime = FileTime.fromMillis(file.lastModified());
             getCreateTime(repository + fileName);
@@ -50,24 +71,31 @@ public class FileOperations extends Files {
 
             if (comparisonResultMod > 0 && comparisonResultAdd < 0) {
                 System.out.println(fileName + " - Changed");
-            }else if(comparisonResultMod < 0){
+            } else if (comparisonResultMod < 0) {
                 System.out.println(fileName + " - No changed");
-            }else if(comparisonResultAdd > 0){
+            } else if (comparisonResultAdd > 0) {
                 System.out.println(fileName + " - New file");
             }
         }
 
-        for(String f: prevFileName){
+        for (String f : prevFileName) {
             folder = new File(repository + f);
-            if(!folder.exists())System.out.println(f + " - Delete");
+            if (!folder.exists()) System.out.println(f + " - Delete");
         }
     }
-    public void printInfo(String filename){
+
+    public void Info(String filename) {
         extension = findExtension(filename);
-        switch (extension){
-            case "txt" -> {txtFile.printInfo(filename);}
-            case "java", "py" -> {programFile.printInfo(filename);}
-            case "png", "jpg" -> {imageFile.printInfo(filename);}
+        switch (extension) {
+            case "txt" -> {
+                txtFile.Info(filename);
+            }
+            case "java", "py" -> {
+                programFile.Info(filename);
+            }
+            case "png", "jpg" -> {
+                imageFile.Info(filename);
+            }
         }
     }
 
@@ -81,26 +109,9 @@ public class FileOperations extends Files {
             e.printStackTrace();
         }
     }
-    private String findExtension(String fileName){
+
+    private String findExtension(String fileName) {
 
         return fileName.substring(fileName.lastIndexOf('.') + 1);
-    }
-    public void writeCommand(){
-        Scanner inputScanner = new Scanner(System.in);
-
-        while(true){
-            String command = inputScanner.next();
-            switch(command){
-                case "commit" -> {commit();}
-                case "info" -> {
-                    String fileName = inputScanner.next();
-                    printInfo(fileName);
-                }
-                case "status" -> {status();}
-                case "help" -> {Menu.printMenu();}
-                case "exit" -> {System.exit(0);}
-                default -> {System.out.println("Invalid command");}
-            }
-        }
     }
 }
