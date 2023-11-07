@@ -8,8 +8,6 @@ import java.time.Instant;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class GeneralOperations {
     public void writeSnapshotAndFilesName(FileTime snapshot, String pathRepository) {
@@ -19,6 +17,7 @@ public class GeneralOperations {
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("D:\\FAF\\OOP\\Laboratory Work #2\\src\\snapshot_time.txt"))) {
             writer.write(snapshot + "\n");
+            assert files != null;
             for(File file: files){
                 writer.write(file.getName() + "\n");
             }
