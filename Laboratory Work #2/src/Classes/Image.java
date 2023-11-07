@@ -14,7 +14,7 @@ public class Image extends Files {
     public int height;
     GeneralOperations file = new GeneralOperations();
     @Override
-    public void Info(String filename) {
+    public void info(String filename) {
         String repository = "D:\\FAF\\OOP\\Laboratory Work #2\\working_folder\\";
         File f = new File(repository + filename);
         if(f.exists()) {
@@ -24,17 +24,17 @@ public class Image extends Files {
             height = countInfo.get(1);
             fileName = filename;
             extension = findExtension(repository + fileName);
-            getCreateTime(repository + fileName);
+            findCreationTime(repository + fileName);
 
-            System.out.println("File Name: " + fileName);
+            System.out.println("Name: " + fileName);
             System.out.println("Extension: " + extension);
-            System.out.println("Created Time: " + createTime);
+            System.out.println("Created time: " + createTime);
             System.out.println("Width: " + width);
             System.out.println("Height: " + height);
-        }else System.out.println("Such file does not exist or has not been deleted!!!");
+        }else System.out.println("Invalid input");
     }
     @Override
-    public void getCreateTime(String filePath) {
+    public void findCreationTime(String filePath) {
         try {
             Path file = Paths.get(filePath);
             BasicFileAttributes attr = java.nio.file.Files.readAttributes(file, BasicFileAttributes.class);

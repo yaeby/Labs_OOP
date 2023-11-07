@@ -16,34 +16,39 @@ public class Code extends Files {
     public int methodCount;
     GeneralOperations file = new GeneralOperations();
     @Override
-    public void Info(String filename) {
+    public void info(String filename) {
+
         String repository = "D:\\FAF\\OOP\\Laboratory Work #2\\working_folder\\";
         File f = new File(repository + filename);
+
         if(f.exists()) {
             List<Integer> countInfo = new ArrayList<>();
             fileName = filename;
             extension = findExtension(repository + fileName);
-            if (extension.equals("java")) {
-                countInfo = file.readJava(repository + filename);
-            } else if (extension.equals("py")) {
+
+            if (extension.equals("py")) {
                 countInfo = file.readPython(repository + filename);
             }
+            else {
+                System.out.println("Unable to read " + fileName);
+            }
+
             lineCount = countInfo.get(0);
             classCount = countInfo.get(1);
             methodCount = countInfo.get(2);
-            getCreateTime(repository + fileName);
+            findCreationTime(repository + fileName);
 
-            System.out.println("File Name: " + fileName);
+            System.out.println("Name: " + fileName);
             System.out.println("Extension: " + extension);
-            System.out.println("Created Time: " + createTime);
-            System.out.println("Line Count: " + lineCount);
-            System.out.println("Class Count: " + classCount);
-            System.out.println("Method Count: " + methodCount);
+            System.out.println("Created time: " + createTime);
+            System.out.println("Line count: " + lineCount);
+            System.out.println("Class count: " + classCount);
+            System.out.println("Method count: " + methodCount);
         }else System.out.println("Invalid input");
     }
 
     @Override
-    public void getCreateTime(String filePath) {
+    public void findCreationTime(String filePath) {
         try {
             Path file = Paths.get(filePath);
             BasicFileAttributes attr = java.nio.file.Files.readAttributes(file, BasicFileAttributes.class);

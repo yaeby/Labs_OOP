@@ -26,7 +26,7 @@ public class FileOperations extends Files {
                 case "commit" -> {commit();}
                 case "info" -> {
                     String fileName = inputScanner.next();
-                    Info(fileName);
+                    info(fileName);
                 }
                 case "status" -> {status();}
                 case "help" -> {Menu.printMenu();}
@@ -55,13 +55,13 @@ public class FileOperations extends Files {
         File[] files = folder.listFiles();
         snapshot = file.readSnapshot();
         List<String> prevFileName = file.processFilesList();
-        System.out.println("Created snapshot at: " + snapshot);
+        System.out.println("Last commit: " + snapshot);
 
         assert files != null;
         for (File file : files) {
             fileName = file.getName();
             FileTime lastModifiedTime = FileTime.fromMillis(file.lastModified());
-            getCreateTime(repository + fileName);
+            findCreationTime(repository + fileName);
 
             int comparisonResultMod = lastModifiedTime.compareTo(snapshot);
             int comparisonResultAdd = createTime.compareTo(snapshot);
@@ -69,7 +69,7 @@ public class FileOperations extends Files {
             if (comparisonResultMod > 0 && comparisonResultAdd < 0) {
                 System.out.println(fileName + " - Changed");
             } else if (comparisonResultMod < 0) {
-                System.out.println(fileName + " - No changed");
+                System.out.println(fileName + " - No changes");
             } else if (comparisonResultAdd > 0) {
                 System.out.println(fileName + " - New file");
             }
@@ -77,27 +77,27 @@ public class FileOperations extends Files {
 
         for (String f : prevFileName) {
             folder = new File(repository + f);
-            if (!folder.exists()) System.out.println(f + " - Delete");
+            if (!folder.exists()) System.out.println(f + " - Deleted");
         }
     }
 
-    public void Info(String filename) {
+    public void info(String filename) {
         extension = findExtension(filename);
         switch (extension) {
             case "txt" -> {
-                txtFile.Info(filename);
+                txtFile.info(filename);
             }
-            case "java", "py" -> {
-                programFile.Info(filename);
+            case "py" -> {
+                programFile.info(filename);
             }
             case "png", "jpg" -> {
-                imageFile.Info(filename);
+                imageFile.info(filename);
             }
         }
     }
 
     @Override
-    public void getCreateTime(String filePath) {
+    public void findCreationTime(String filePath) {
         try {
             Path file = Paths.get(filePath);
             BasicFileAttributes attr = java.nio.file.Files.readAttributes(file, BasicFileAttributes.class);

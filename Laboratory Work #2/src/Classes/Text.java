@@ -16,7 +16,7 @@ public class Text extends Files {
     GeneralOperations file = new GeneralOperations();
 
     @Override
-    public void Info(String filename) {
+    public void info(String filename) {
         String repository = "D:\\FAF\\OOP\\Laboratory Work #2\\working_folder\\";
         File f = new File(repository + filename);
         if(f.exists()){
@@ -26,17 +26,17 @@ public class Text extends Files {
             charCount = countInfo.get(1);
             lineCount = countInfo.get(2);
             fileName = filename;
-            getCreateTime(repository + fileName);
-            System.out.println("File Name: " + fileName);
+            findCreationTime(repository + fileName);
+            System.out.println("Name: " + fileName);
             System.out.println("Extension: txt");
-            System.out.println("Created Time: " + createTime);
-            System.out.println("Line Count: " + lineCount);
-            System.out.println("Word Count: " + wordCount);
-            System.out.println("Character Count: " + charCount);
-        }else System.out.println("Such file does not exist or has not been deleted!!!");
+            System.out.println("Created time: " + createTime);
+            System.out.println("Line count: " + lineCount);
+            System.out.println("Word count: " + wordCount);
+            System.out.println("Character count: " + charCount);
+        }else System.out.println("Invalid input");
     }
     @Override
-    public void getCreateTime(String filePath) {
+    public void findCreationTime(String filePath) {
         try {
             Path file = Paths.get(filePath);
             BasicFileAttributes attr = java.nio.file.Files.readAttributes(file, BasicFileAttributes.class);

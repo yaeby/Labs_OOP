@@ -78,36 +78,7 @@ public class GeneralOperations {
         countInfo.add(lineCount);
         return countInfo;
     }
-    public List<Integer> readJava(String path) {
-        int classCount = 0;
-        int methodCount = 0;
-        int lineCount = 0;
-        List<Integer> countInfo = new ArrayList<>();
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(path));
-            String line;
-            Pattern classPattern = Pattern.compile("\\b(class|interface|enum)\\s+\\w+\\s*\\{");
-            Pattern methodPattern = Pattern.compile("\\b\\w+(?:<[^>]+>)?\\s+\\w+\\s*\\([^)]*\\)\\s*(?:throws\\s+\\w+(?:,\\s*\\w+)*)?\\s*\\{");
-            while ((line = reader.readLine()) != null) {
-                Matcher classMatcher = classPattern.matcher(line);
-                Matcher methodMatcher = methodPattern.matcher(line);
-                if (classMatcher.find()) {
-                    classCount++;
-                }
-                else if (methodMatcher.find()) {
-                    methodCount++;
-                }
-                lineCount++;
-            }
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        countInfo.add(lineCount);
-        countInfo.add(classCount);
-        countInfo.add(methodCount);
-        return countInfo;
-    }
+
     public List<Integer> readPython(String path) {
         int classCount = 0;
         int methodCount = 0;
