@@ -36,7 +36,7 @@ public class Code extends Files {
             lineCount = countInfo.get(0);
             classCount = countInfo.get(1);
             methodCount = countInfo.get(2);
-            findCreationTime(repository + fileName);
+            getCreationTime(repository + fileName);
 
             System.out.println("Name: " + fileName);
             System.out.println("Extension: " + extension);
@@ -48,7 +48,7 @@ public class Code extends Files {
     }
 
     @Override
-    public void findCreationTime(String filePath) {
+    public void getCreationTime(String filePath) {
         try {
             Path file = Paths.get(filePath);
             BasicFileAttributes attr = java.nio.file.Files.readAttributes(file, BasicFileAttributes.class);

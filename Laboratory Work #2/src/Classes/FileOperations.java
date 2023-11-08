@@ -1,9 +1,7 @@
-package Operations;
+package Classes;
 
-import Classes.Files;
-import Classes.Image;
-import Classes.Code;
-import Classes.Text;
+import Operations.GeneralOperations;
+import Operations.Menu;
 
 import java.io.File;
 import java.io.IOException;
@@ -29,7 +27,8 @@ public class FileOperations extends Files {
                     info(fileName);
                 }
                 case "status" -> {status();}
-                case "help" -> {Menu.printMenu();}
+                case "help" -> {
+                    Menu.printMenu();}
                 case "exit" -> {System.exit(0);}
                 default -> {System.out.println("Invalid command");}
             }
@@ -39,7 +38,7 @@ public class FileOperations extends Files {
     GeneralOperations file = new GeneralOperations();
     Text txtFile = new Text();
     Image imageFile = new Image();
-    Code programFile = new Code();
+    Code codeFile = new Code();
 
     public void commit() {
         FileTime currentFileTime = FileTime.from(Instant.now());
@@ -61,7 +60,7 @@ public class FileOperations extends Files {
         for (File file : files) {
             fileName = file.getName();
             FileTime lastModifiedTime = FileTime.fromMillis(file.lastModified());
-            findCreationTime(repository + fileName);
+            getCreationTime(repository + fileName);
 
             int comparisonResultMod = lastModifiedTime.compareTo(snapshot);
             int comparisonResultAdd = createTime.compareTo(snapshot);
@@ -82,13 +81,13 @@ public class FileOperations extends Files {
     }
 
     public void info(String filename) {
-        extension = findExtension(filename);
+        extension = getExtension(filename);
         switch (extension) {
             case "txt" -> {
                 txtFile.info(filename);
             }
             case "py" -> {
-                programFile.info(filename);
+                codeFile.info(filename);
             }
             case "png", "jpg" -> {
                 imageFile.info(filename);
@@ -97,7 +96,7 @@ public class FileOperations extends Files {
     }
 
     @Override
-    public void findCreationTime(String filePath) {
+    public void getCreationTime(String filePath) {
         try {
             Path file = Paths.get(filePath);
             BasicFileAttributes attr = java.nio.file.Files.readAttributes(file, BasicFileAttributes.class);
@@ -107,7 +106,7 @@ public class FileOperations extends Files {
         }
     }
 
-    private String findExtension(String fileName) {
+    private String getExtension(String fileName) {
 
         return fileName.substring(fileName.lastIndexOf('.') + 1);
     }
