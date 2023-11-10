@@ -23,9 +23,8 @@ public class Image extends Files {
             width = countInfo.get(0);
             height = countInfo.get(1);
             fileName = filename;
-            extension = findExtension(repository + fileName);
+            extension = getExtension(repository + fileName);
             getCreationTime(repository + fileName);
-
             System.out.println("Name: " + fileName);
             System.out.println("Extension: " + extension);
             System.out.println("Created time: " + createTime);
@@ -42,9 +41,5 @@ public class Image extends Files {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-    private String findExtension(String fileName){
-
-        return fileName.substring(fileName.lastIndexOf('.') + 1);
     }
 }

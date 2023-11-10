@@ -9,4 +9,8 @@ public abstract class Files {
     public FileTime snapshot;
     public abstract void info(String filename);
     public abstract void getCreationTime(String filePath);
+
+    public String getExtension(String fileName) {
+        return fileName.substring(fileName.lastIndexOf('.') + 1);
+    }
 }

@@ -24,7 +24,7 @@ public class Code extends Files {
         if(f.exists()) {
             List<Integer> countInfo = new ArrayList<>();
             fileName = filename;
-            extension = findExtension(repository + fileName);
+            extension = getExtension(repository + fileName);
 
             if (extension.equals("py")) {
                 countInfo = file.readPython(repository + filename);
@@ -37,7 +37,6 @@ public class Code extends Files {
             classCount = countInfo.get(1);
             methodCount = countInfo.get(2);
             getCreationTime(repository + fileName);
-
             System.out.println("Name: " + fileName);
             System.out.println("Extension: " + extension);
             System.out.println("Created time: " + createTime);
@@ -56,9 +55,5 @@ public class Code extends Files {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-    private String findExtension(String fileName){
-
-        return fileName.substring(fileName.lastIndexOf('.') + 1);
     }
 }

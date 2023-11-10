@@ -26,9 +26,10 @@ public class Text extends Files {
             charCount = countInfo.get(1);
             lineCount = countInfo.get(2);
             fileName = filename;
+            extension = getExtension(repository + fileName);
             getCreationTime(repository + fileName);
             System.out.println("Name: " + fileName);
-            System.out.println("Extension: txt");
+            System.out.println("Extension: " + extension);
             System.out.println("Created time: " + createTime);
             System.out.println("Line count: " + lineCount);
             System.out.println("Word count: " + wordCount);

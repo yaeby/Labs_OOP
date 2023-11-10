@@ -27,8 +27,7 @@ public class FileOperations extends Files {
                     info(fileName);
                 }
                 case "status" -> {status();}
-                case "help" -> {
-                    Menu.printMenu();}
+                case "help" -> {Menu.printMenu();}
                 case "exit" -> {System.exit(0);}
                 default -> {System.out.println("Invalid command");}
             }
@@ -104,10 +103,5 @@ public class FileOperations extends Files {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    private String getExtension(String fileName) {
-
-        return fileName.substring(fileName.lastIndexOf('.') + 1);
     }
 }
