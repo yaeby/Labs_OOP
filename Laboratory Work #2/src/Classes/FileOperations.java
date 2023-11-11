@@ -3,17 +3,12 @@ package Classes;
 import Operations.GeneralOperations;
 import Operations.Menu;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.attribute.BasicFileAttributes;
 import java.nio.file.attribute.FileTime;
 import java.time.Instant;
 import java.util.List;
 import java.util.Scanner;
 
-public class FileOperations extends Files {
+public class FileOperations extends File {
 
     public void inputCommand(){
         Scanner inputScanner = new Scanner(System.in);
@@ -49,17 +44,17 @@ public class FileOperations extends Files {
 
     public void status() {
         String repository = "D:\\FAF\\OOP\\Laboratory Work #2\\working_folder\\";
-        File folder = new File(repository);
-        File[] files = folder.listFiles();
+        java.io.File folder = new java.io.File(repository);
+        java.io.File[] files = folder.listFiles();
         snapshot = file.readSnapshot();
         List<String> prevFileName = file.processFilesList();
         System.out.println("Last commit: " + snapshot);
 
         assert files != null;
-        for (File file : files) {
+        for (java.io.File file : files) {
             fileName = file.getName();
             FileTime lastModifiedTime = FileTime.fromMillis(file.lastModified());
-            getCreationTime(repository + fileName);
+            createTime = getCreationTime(repository + fileName);
 
             int comparisonResultMod = lastModifiedTime.compareTo(snapshot);
             int comparisonResultAdd = createTime.compareTo(snapshot);
@@ -74,7 +69,7 @@ public class FileOperations extends Files {
         }
 
         for (String f : prevFileName) {
-            folder = new File(repository + f);
+            folder = new java.io.File(repository + f);
             if (!folder.exists()) System.out.println(f + " - Deleted");
         }
     }
@@ -91,17 +86,6 @@ public class FileOperations extends Files {
             case "png", "jpg" -> {
                 imageFile.info(filename);
             }
-        }
-    }
-
-    @Override
-    public void getCreationTime(String filePath) {
-        try {
-            Path file = Paths.get(filePath);
-            BasicFileAttributes attr = java.nio.file.Files.readAttributes(file, BasicFileAttributes.class);
-            createTime = attr.creationTime();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 }

@@ -2,14 +2,9 @@ package Classes;
 
 import Operations.GeneralOperations;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.attribute.BasicFileAttributes;
 import java.util.List;
 
-public class Text extends Files {
+public class Text extends File {
     public int lineCount;
     public int wordCount;
     public int charCount;
@@ -17,8 +12,7 @@ public class Text extends Files {
 
     @Override
     public void info(String filename) {
-        String repository = "D:\\FAF\\OOP\\Laboratory Work #2\\working_folder\\";
-        File f = new File(repository + filename);
+        java.io.File f = new java.io.File(repository + filename);
         if(f.exists()){
             List<Integer> countInfo;
             countInfo = file.readText(repository + filename);
@@ -27,6 +21,7 @@ public class Text extends Files {
             lineCount = countInfo.get(2);
             fileName = filename;
             extension = getExtension(repository + fileName);
+            createTime = getCreationTime(repository + fileName);
             getCreationTime(repository + fileName);
             System.out.println("Name: " + fileName);
             System.out.println("Extension: " + extension);
@@ -35,15 +30,5 @@ public class Text extends Files {
             System.out.println("Word count: " + wordCount);
             System.out.println("Character count: " + charCount);
         }else System.out.println("Invalid input");
-    }
-    @Override
-    public void getCreationTime(String filePath) {
-        try {
-            Path file = Paths.get(filePath);
-            BasicFileAttributes attr = java.nio.file.Files.readAttributes(file, BasicFileAttributes.class);
-            createTime = attr.creationTime();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }
