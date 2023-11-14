@@ -9,9 +9,7 @@ import java.nio.file.attribute.FileTime;
 import java.time.Instant;
 import java.util.List;
 import java.util.Scanner;
-
 public class Operations extends File {
-
     public void inputCommand(){
         Scanner inputScanner = new Scanner(System.in);
 
