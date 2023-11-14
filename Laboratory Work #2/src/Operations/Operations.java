@@ -1,14 +1,16 @@
-package Classes;
+package Operations;
 
-import Operations.GeneralOperations;
-import Operations.Menu;
+import Classes.Code;
+import Classes.File;
+import Classes.Image;
+import Classes.Text;
 
 import java.nio.file.attribute.FileTime;
 import java.time.Instant;
 import java.util.List;
 import java.util.Scanner;
 
-public class FileOperations extends File {
+public class Operations extends File {
 
     public void inputCommand(){
         Scanner inputScanner = new Scanner(System.in);
@@ -37,13 +39,10 @@ public class FileOperations extends File {
     public void commit() {
         FileTime currentFileTime = FileTime.from(Instant.now());
 
-        String repository = "D:\\FAF\\OOP\\Laboratory Work #2\\working_folder\\";
-
         file.writeSnapshotAndFilesName(currentFileTime, repository);
     }
 
     public void status() {
-        String repository = "D:\\FAF\\OOP\\Laboratory Work #2\\working_folder\\";
         java.io.File folder = new java.io.File(repository);
         java.io.File[] files = folder.listFiles();
         snapshot = file.readSnapshot();
