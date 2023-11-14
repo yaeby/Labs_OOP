@@ -6,8 +6,8 @@ import java.nio.file.Paths;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.nio.file.attribute.FileTime;
 
-public abstract class File {
-    public static final String repository = "D:\\FAF\\OOP\\Laboratory Work #2\\working_folder\\";
+public abstract class Files {
+    public static final String path = "D:\\FAF\\OOP\\Laboratory Work #2\\working_folder\\";
     public String fileName;
     public String extension;
     public FileTime createTime;

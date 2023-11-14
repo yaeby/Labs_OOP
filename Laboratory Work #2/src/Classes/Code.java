@@ -1,35 +1,29 @@
 package Classes;
 
-import Operations.GeneralOperations;
-
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Code extends File {
+public class Code extends Files {
     public int lineCount;
     public int classCount;
     public int methodCount;
-    GeneralOperations file = new GeneralOperations();
+
     @Override
     public void info(String filename) {
-        java.io.File f = new java.io.File(repository + filename);
+        java.io.File f = new java.io.File(path + filename);
 
         if(f.exists()) {
-            List<Integer> countInfo = new ArrayList<>();
+            List<Integer> countInfo;
+            countInfo = readPython(path + filename);
             fileName = filename;
-            extension = getExtension(repository + fileName);
-
-            if (extension.equals("py")) {
-                countInfo = file.readPython(repository + filename);
-            }
-            else {
-                System.out.println("Unable to read " + fileName);
-            }
-
+            extension = getExtension(path + fileName);
             lineCount = countInfo.get(0);
             classCount = countInfo.get(1);
             methodCount = countInfo.get(2);
-            createTime = getCreationTime(repository + fileName);
+            createTime = getCreationTime(path + fileName);
             System.out.println("Name: " + fileName);
             System.out.println("Extension: " + extension);
             System.out.println("Created time: " + createTime);
@@ -37,5 +31,34 @@ public class Code extends File {
             System.out.println("Class count: " + classCount);
             System.out.println("Method count: " + methodCount);
         }else System.out.println("Invalid input");
+    }
+
+    private List<Integer> readPython(String path) {
+        int classCount = 0;
+        int methodCount = 0;
+        int lineCount = 0;
+        List<Integer> countInfo = new ArrayList<>();
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(path));
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                line = line.trim();
+                if (line.startsWith("class ")) {
+                    classCount++;
+                } else if (line.matches("\\s*def\\s+\\w+\\s*\\([^)]*\\):")) {
+                    methodCount++;
+                }
+                lineCount++;
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        countInfo.add(lineCount);
+        countInfo.add(classCount);
+        countInfo.add(methodCount);
+        return countInfo;
     }
 }

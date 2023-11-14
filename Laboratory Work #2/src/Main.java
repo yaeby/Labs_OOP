@@ -1,4 +1,4 @@
-import Operations.Operations;
+import Operations.Command;
 import Operations.ChangingOperations;
 import Operations.Menu;
 
@@ -15,7 +15,7 @@ public class Main {
         thread.start();
 
         //Read & Execute commands
-        Operations command = new Operations();
+        Command command = new Command();
         command.inputCommand();
     }
 }

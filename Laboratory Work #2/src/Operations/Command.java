@@ -1,7 +1,7 @@
 package Operations;
 
 import Classes.Code;
-import Classes.File;
+import Classes.Files;
 import Classes.Image;
 import Classes.Text;
 
@@ -9,7 +9,8 @@ import java.nio.file.attribute.FileTime;
 import java.time.Instant;
 import java.util.List;
 import java.util.Scanner;
-public class Operations extends File {
+public class Command extends Files {
+    public static final String path = "D:\\FAF\\OOP\\Laboratory Work #2\\working_folder\\";
     public void inputCommand(){
         Scanner inputScanner = new Scanner(System.in);
 
@@ -37,11 +38,11 @@ public class Operations extends File {
     public void commit() {
         FileTime currentFileTime = FileTime.from(Instant.now());
 
-        file.writeSnapshotAndFilesName(currentFileTime, repository);
+        file.writeSnapshotAndFilesName(currentFileTime, path);
     }
 
     public void status() {
-        java.io.File folder = new java.io.File(repository);
+        java.io.File folder = new java.io.File(path);
         java.io.File[] files = folder.listFiles();
         snapshot = file.readSnapshot();
         List<String> prevFileName = file.processFilesList();
@@ -51,7 +52,7 @@ public class Operations extends File {
         for (java.io.File file : files) {
             fileName = file.getName();
             FileTime lastModifiedTime = FileTime.fromMillis(file.lastModified());
-            createTime = getCreationTime(repository + fileName);
+            createTime = getCreationTime(path + fileName);
 
             int comparisonResultMod = lastModifiedTime.compareTo(snapshot);
             int comparisonResultAdd = createTime.compareTo(snapshot);
@@ -66,7 +67,7 @@ public class Operations extends File {
         }
 
         for (String f : prevFileName) {
-            folder = new java.io.File(repository + f);
+            folder = new java.io.File(path + f);
             if (!folder.exists()) System.out.println(f + " - Deleted");
         }
     }
