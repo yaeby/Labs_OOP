@@ -20,10 +20,9 @@ public class Text extends Files {
             wordCount = countInfo.get(0);
             charCount = countInfo.get(1);
             lineCount = countInfo.get(2);
-            fileName = filename;
-            extension = getExtension(path + fileName);
-            createTime = getCreationTime(path + fileName);
-            getCreationTime(path + fileName);
+            fileName = getFileName(filename);
+            extension = getExtension(path + filename);
+            createTime = getCreationTime(path + filename);
             System.out.println("Name: " + fileName);
             System.out.println("Extension: " + extension);
             System.out.println("Created time: " + createTime);

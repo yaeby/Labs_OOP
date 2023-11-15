@@ -19,9 +19,9 @@ public class Image extends Files {
             countInfo = readImage(path + filename);
             width = countInfo.get(0);
             height = countInfo.get(1);
-            fileName = filename;
-            extension = getExtension(path + fileName);
-            createTime = getCreationTime(path + fileName);
+            fileName = getFileName(filename);
+            extension = getExtension(path + filename);
+            createTime = getCreationTime(path + filename);
             System.out.println("Name: " + fileName);
             System.out.println("Extension: " + extension);
             System.out.println("Created time: " + createTime);

@@ -14,6 +14,9 @@ public abstract class Files {
 
     public abstract void info(String filename);
 
+    public String getFileName(String fileName){
+        return fileName.substring(0, fileName.indexOf("."));
+    }
     public String getExtension(String fileName) {
         return fileName.substring(fileName.lastIndexOf('.') + 1);
     }

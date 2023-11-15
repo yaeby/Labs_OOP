@@ -18,12 +18,12 @@ public class Code extends Files {
         if(f.exists()) {
             List<Integer> countInfo;
             countInfo = readPython(path + filename);
-            fileName = filename;
-            extension = getExtension(path + fileName);
             lineCount = countInfo.get(0);
             classCount = countInfo.get(1);
             methodCount = countInfo.get(2);
-            createTime = getCreationTime(path + fileName);
+            fileName = getFileName(filename);
+            extension = getExtension(path + filename);
+            createTime = getCreationTime(path + filename);
             System.out.println("Name: " + fileName);
             System.out.println("Extension: " + extension);
             System.out.println("Created time: " + createTime);

@@ -1,5 +1,7 @@
 package Operations;
 
+import Classes.Files;
+
 import java.io.IOException;
 import java.nio.file.*;
 
@@ -7,7 +9,8 @@ public class ChangingOperations implements Runnable {
 
     public final int time = 5000;
     private void checkChanges() throws IOException, InterruptedException {
-        Path repository = Paths.get("D:\\FAF\\OOP\\Laboratory Work #2\\working_folder\\");
+        String path = Files.path;
+        Path repository = Paths.get(path);
 
         //Watch Service
         WatchService watchService = FileSystems.getDefault().newWatchService();
