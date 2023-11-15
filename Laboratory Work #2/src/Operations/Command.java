@@ -73,7 +73,7 @@ public class Command extends Files {
     }
 
     public void info(String filename) {
-        extension = getExtension(filename);
+        String extension = filename.substring(filename.lastIndexOf('.') + 1);
         switch (extension) {
             case "txt" -> {
                 txtFile.info(filename);
