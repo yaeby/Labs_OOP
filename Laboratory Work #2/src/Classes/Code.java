@@ -14,7 +14,6 @@ public class Code extends Files {
     @Override
     public void info(String filename) {
         java.io.File f = new java.io.File(path + filename);
-
         if(f.exists()) {
             List<Integer> countInfo;
             countInfo = readPython(path + filename);
