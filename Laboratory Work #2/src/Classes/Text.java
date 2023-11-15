@@ -30,7 +30,7 @@ public class Text extends Files {
             System.out.println("Line count: " + lineCount);
             System.out.println("Word count: " + wordCount);
             System.out.println("Character count: " + charCount);
-        }else System.out.println("Invalid input");
+        }else System.out.println("Invalid File Name: " + filename);
     }
 
     private List<Integer> readText(String path){

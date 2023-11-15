@@ -30,7 +30,7 @@ public class Code extends Files {
             System.out.println("Line count: " + lineCount);
             System.out.println("Class count: " + classCount);
             System.out.println("Method count: " + methodCount);
-        }else System.out.println("Invalid input");
+        }else System.out.println("Invalid File Name: " + filename);
     }
 
     private List<Integer> readPython(String path) {

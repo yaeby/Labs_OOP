@@ -27,7 +27,7 @@ public class Image extends Files {
             System.out.println("Created time: " + createTime);
             System.out.println("Width: " + width);
             System.out.println("Height: " + height);
-        }else System.out.println("Invalid input");
+        }else System.out.println("Invalid File Name: " + filename);
     }
 
     private List<Integer> readImage(String path){

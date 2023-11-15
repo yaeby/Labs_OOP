@@ -10,7 +10,7 @@ import java.time.Instant;
 import java.util.List;
 import java.util.Scanner;
 public class Command {
-    public static final String path = "D:\\FAF\\OOP\\Laboratory Work #2\\working_folder\\";
+    String path = Files.path;
     public void inputCommand(){
         Scanner inputScanner = new Scanner(System.in);
 
