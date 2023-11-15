@@ -11,7 +11,6 @@ public abstract class Files {
     public String fileName;
     public String extension;
     public FileTime createTime;
-    public FileTime snapshot;
 
     public abstract void info(String filename);
 
@@ -19,7 +18,7 @@ public abstract class Files {
         return fileName.substring(fileName.lastIndexOf('.') + 1);
     }
 
-    public FileTime getCreationTime(String filePath) {
+    public static FileTime getCreationTime(String filePath) {
         try {
             Path file = Paths.get(filePath);
             BasicFileAttributes attr = java.nio.file.Files.readAttributes(file, BasicFileAttributes.class);
