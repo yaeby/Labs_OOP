@@ -17,15 +17,25 @@ public class Command {
         while(true){
             String command = inputScanner.next();
             switch(command){
-                case "commit" -> {commit();}
-                case "info" -> {
+                case "commit":
+                    commit();
+                    break;
+                case "info":
                     String fileName = inputScanner.next();
                     info(fileName);
-                }
-                case "status" -> {status();}
-                case "help" -> {Menu.printMenu();}
-                case "exit" -> {System.exit(0);}
-                default -> {System.out.println("Invalid command: " + command);}
+                break;
+                case "status":
+                    status();
+                    break;
+                case "help":
+                    Menu.printMenu();
+                    break;
+                case "exit":
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("Invalid command: " + command);
+                    break;
             }
         }
     }
@@ -75,18 +85,18 @@ public class Command {
     public void info(String filename) {
         String extension = filename.substring(filename.lastIndexOf('.') + 1);
         switch (extension) {
-            case "txt" -> {
+            case "txt":
                 txtFile.info(filename);
-            }
-            case "py" -> {
+            break;
+            case "py":
                 codeFile.info(filename);
-            }
-            case "png", "jpg" -> {
+            break;
+            case "png", "jpg":
                 imageFile.info(filename);
-            }
-            default -> {
+            break;
+            default:
                 System.out.println("Invalid File Name: " + filename);
-            }
+            break;
         }
     }
 }
