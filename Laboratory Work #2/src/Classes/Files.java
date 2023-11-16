@@ -8,16 +8,16 @@ import java.nio.file.attribute.FileTime;
 
 public abstract class Files {
     public static final String path = "D:\\FAF\\OOP\\Laboratory Work #2\\working_folder\\";
-    public String fileName;
-    public String extension;
-    public FileTime createTime;
+    protected String fileName;
+    protected String extension;
+    protected FileTime createTime;
 
-    public abstract void info(String filename);
+    protected abstract void info(String filename);
 
-    public String getFileName(String fileName){
+    protected String getFileName(String fileName){
         return fileName.substring(0, fileName.indexOf("."));
     }
-    public String getExtension(String fileName) {
+    protected String getExtension(String fileName) {
         return fileName.substring(fileName.lastIndexOf('.') + 1);
     }
 
