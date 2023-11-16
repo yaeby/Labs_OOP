@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GeneralOperations {
-    public static final String path = "D:\\FAF\\OOP\\Laboratory Work #2\\src\\snapshot_time.txt";
+    private final String path = "D:\\FAF\\OOP\\Laboratory Work #2\\src\\snapshot_time.txt";
 
     public void writeSnapshotAndFilesName(FileTime snapshot, String pathRepository) {
 

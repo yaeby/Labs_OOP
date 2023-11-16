@@ -23,7 +23,7 @@ public class Command {
                 case "info":
                     String fileName = inputScanner.next();
                     info(fileName);
-                break;
+                    break;
                 case "status":
                     status();
                     break;
@@ -75,7 +75,6 @@ public class Command {
                 System.out.println(fileName + " - New file");
             }
         }
-
         for (String f : prevFileName) {
             folder = new java.io.File(path + f);
             if (!folder.exists()) System.out.println(f + " - Deleted");

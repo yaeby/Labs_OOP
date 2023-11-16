@@ -7,7 +7,6 @@ import java.nio.file.*;
 
 public class ChangingOperations implements Runnable {
 
-    public final int time = 5000;
     private void checkChanges() throws IOException, InterruptedException {
         String path = Files.path;
         Path repository = Paths.get(path);
@@ -38,7 +37,7 @@ public class ChangingOperations implements Runnable {
                 throw new RuntimeException(e);
             }
             try {
-                Thread.sleep(time);
+                Thread.sleep(5000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
